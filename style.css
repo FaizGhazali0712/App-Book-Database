@@ -1,0 +1,123 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.container {
+  background: #fff;
+  margin-top: 40px;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 380px;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #333;
+}
+
+.input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-area input,
+.input-area select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+#add-btn {
+  padding: 10px;
+  border: none;
+  background: goldenrod;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#add-btn:hover {
+  background: darkgoldenrod;
+}
+
+/* ====== List Data ====== */
+#data-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.data-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafafa;
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+/* Text */
+.data-item span {
+  flex: 1;
+  font-size: 15px;
+  color: #444;
+}
+
+/* Tombol Edit & Delete */
+.edit-btn, .delete-btn {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  background: blue;
+  color: white;
+}
+
+.edit-btn:hover {
+  background: navy;
+}
+
+.delete-btn {
+  background: red;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: darkred;
+}
+.book-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.book-img {
+  width: 40px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
