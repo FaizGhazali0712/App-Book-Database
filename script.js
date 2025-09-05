@@ -36,13 +36,15 @@ addBtn.addEventListener('click', (e) => {
 
   const text = dataInput.value.trim();
   const imgUrl = document.getElementById('img-input').value.trim();
+  const status = document.getElementById('two-option').value;
 
   if (text === '' || imgUrl === '') return;
 
   const newData = {
     id: Date.now(),
     text: text,
-    img: imgUrl
+    img: imgUrl,
+    status: status
   };
 
   datas.push(newData);
@@ -52,6 +54,7 @@ addBtn.addEventListener('click', (e) => {
   dataInput.value = '';
   document.getElementById('img-input').value = '';
 });
+
 function renderDatas() {
   dataList.innerHTML = '';
 
@@ -60,11 +63,10 @@ function renderDatas() {
     li.className = 'data-item';
 
     li.innerHTML = `
-      <div class="book-info">
-        <img src="${data.img}" alt="${data.text}" class="book-img"/>
-        <span>${data.text}</span>
-      </div>
-      <div>
+      <img src="${data.img}" alt="${data.text}" class="book-img"/>
+      <span class="book-title">${data.text}</span>
+      <span class="book-status">${data.status}</span>
+      <div class="actions">
         <button class="edit-btn" data-id="${data.id}">Edit</button>
         <button class="delete-btn" data-id="${data.id}">Hapus</button>
       </div>
