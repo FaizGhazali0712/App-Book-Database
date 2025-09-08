@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Tugas</title>
-    <link rel="stylesheet" href="style.css"> </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Buku</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-    <div class="container">
-        <h1>Edit Tugas ✏️</h1>
-        <div class="input-area">
-            <input type="text" id="edit-input" placeholder="Edit teks tugas...">
-            <button id="save-btn">Simpan</button>
-        </div>
+  <div class="container">
+    <h1>Edit Buku ✏️</h1>
+    <div class="input-area">
+      <input type="text" id="edit-title" placeholder="Edit judul buku...">
+      <input type="text" id="edit-img" placeholder="Edit URL gambar...">
+      <select id="edit-status">
+        <option value="Favourite">Favourite⭐</option>
+        <option value="Prohobited">Prohobited❌</option>
+      </select>
+      <button id="save-btn">Simpan</button>
     </div>
+  </div>
 
-    <script src="edit.js"></script> 
+  <script src="editor.js"></script>
 </body>
 </html>

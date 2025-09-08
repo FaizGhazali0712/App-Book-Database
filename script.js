@@ -88,14 +88,11 @@ dataList.addEventListener('click', (e) => {
   }
 
   if (e.target.classList.contains('edit-btn')) {
-    const newText = prompt('Edit data:', datas.find(d => d.id == id).text);
-    if (newText) {
-      datas = datas.map(d => d.id == id ? { ...d, text: newText } : d);
-      saveDatas();
-      renderDatas();
-    }
+    // redirect ke editor.html dengan query parameter id
+    window.location.href = `editor.html?id=${id}`;
   }
 });
+
 
 // Render pertama kali saat halaman load
 renderDatas();

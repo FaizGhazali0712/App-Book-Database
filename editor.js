@@ -1,40 +1,38 @@
-// 1. Pilih elemen HTML di halaman edit.html
-const editInput = document.getElementById('edit-input');
+// Ambil elemen
+const titleInput = document.getElementById('edit-title');
+const imgInput = document.getElementById('edit-img');
+const statusSelect = document.getElementById('edit-status');
 const saveBtn = document.getElementById('save-btn');
 
-// 2. Ambil ID dari URL
+// Ambil id dari URL
 const urlParams = new URLSearchParams(window.location.search);
-const todoId = parseInt(urlParams.get('id')); // Ambil nilai dari parameter 'id'
+const bookId = parseInt(urlParams.get('id'));
 
-// 3. Ambil semua todos dari localStorage
-let todos = JSON.parse(localStorage.getItem('todos')) || [];
+// Ambil data dari localStorage
+let datas = JSON.parse(localStorage.getItem('datas')) || [];
 
-// 4. Cari todo yang mau diedit dan tampilkan di input
-const todoToEdit = todos.find(todo => todo.id === todoId);
+// Cari data berdasarkan id
+let bookToEdit = datas.find(d => d.id === bookId);
 
-if (todoToEdit) {
-    // Jika todo ditemukan, isi input dengan teksnya
-    editInput.value = todoToEdit.text;
+if (bookToEdit) {
+  titleInput.value = bookToEdit.text;
+  imgInput.value = bookToEdit.img;
+  statusSelect.value = bookToEdit.status;
 } else {
-    // Jika tidak ditemukan (misal, URL diubah manual), kembalikan ke halaman utama
-    alert('Tugas tidak ditemukan!');
-    window.location.href = 'index.html';
+  alert('Buku tidak ditemukan!');
+  window.location.href = 'index.html';
 }
 
-// 5. Tambahkan event listener untuk tombol Simpan
-saveBtn.addEventListener('click', function() {
-    // Ambil teks baru dari input
-    const newText = editInput.value.trim();
+// Simpan perubahan
+saveBtn.addEventListener('click', () => {
+  bookToEdit.text = titleInput.value.trim();
+  bookToEdit.img = imgInput.value.trim();
+  bookToEdit.status = statusSelect.value;
 
-    if (newText !== '') {
-        // Update teks pada todo yang sedang diedit
-        todoToEdit.text = newText;
+  // Update array di localStorage
+  datas = datas.map(d => d.id === bookId ? bookToEdit : d);
+  localStorage.setItem('datas', JSON.stringify(datas));
 
-        // Simpan kembali seluruh array todos ke localStorage
-        localStorage.setItem('todos', JSON.stringify(todos));
-
-        // Arahkan kembali ke halaman utama
-        alert('Tugas berhasil diperbarui!');
-        window.location.href = 'index.html';
-    }
+  alert('Data buku berhasil diperbarui!');
+  window.location.href = 'index.html';
 });
